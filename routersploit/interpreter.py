@@ -39,8 +39,7 @@ import readline
 
 
 def is_libedit():
-    return "libedit" in readline.__doc__
-
+    return isinstance(readline.__doc__, str) and "libedit" in readline.__doc__
 
 class BaseInterpreter(object):
     history_file = os.path.expanduser("~/.history")
@@ -241,11 +240,8 @@ class RoutersploitInterpreter(BaseInterpreter):
             Embedded Devices
 
  Codename   : I Knew You Were Trouble
- Version    : 3.4.1
+ Version    : 3.4.6
  Homepage   : https://www.threat9.com - @threatnine
- Join Slack : https://www.threat9.com/slack
-
- Join Threat9 Beta Program - https://www.threat9.com
 
  Exploits: {exploits_count} Scanners: {scanners_count} Creds: {creds_count} Generic: {generic_count} Payloads: {payloads_count} Encoders: {encoders_count}
 """.format(exploits_count=self.modules_count["exploits"],
